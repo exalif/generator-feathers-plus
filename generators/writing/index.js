@@ -3,7 +3,7 @@
 const makeDebug = require('debug');
 const merge = require('lodash.merge');
 
-const { camelCase, kebabCase, snakeCase, upperFirst } = require('lodash');
+const { camelCase, kebabCase, snakeCase, upperFirst, uniqBy } = require('lodash');
 const { join } = require('path');
 
 const { app } = require('./app');
@@ -20,6 +20,7 @@ const { resources } = require('./resources');
 const serviceSpecsExpand = require('../../lib/service-specs-expand');
 const stringifyPlus = require('../../lib/stringify-plus');
 const { updateSpecs } = require('../../lib/specs');
+const { generateEnumsTyping } = require('../../lib/generate-enum-typing');
 
 const debug = makeDebug('generator-feathers-plus:main');
 const EOL = '\n';
@@ -160,6 +161,7 @@ module.exports = function generatorWriting (generator, what) {
     this.srcPath = join(this.tpl, 'src');
     this.mwPath = join(this.srcPath, 'middleware');
     this.serPath = join(this.srcPath, 'services');
+    this.enumPath = join(this.srcPath, 'enums');
     this.namePath = join(this.serPath, 'name');
     this.qlPath = join(this.serPath, 'graphql');
     this.testPath = join(this.tpl, 'test');
@@ -198,9 +200,18 @@ module.exports = function generatorWriting (generator, what) {
 
       app(generator, props, specs, context, state);
 
+      let typescriptEnums = [];
+
       Object.keys(specs.services || {}).forEach(name => {
-        service(generator, name, props, specs, context, state, inject);
+        const { typescriptEnums: enums } = service(generator, name, props, specs, context, state, inject);
+        typescriptEnums.push(enums);
       });
+
+      typescriptEnums = uniqBy(typescriptEnums, 'name');
+
+      if (context.isJs) {
+        generateEnumsTyping(generator, specs, context, state, typescriptEnums);
+      }
 
       Object.keys(specs.hooks || {}).forEach(name => {
         hook(generator, name, props, specs, context, state);

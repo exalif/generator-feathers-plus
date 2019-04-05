@@ -145,7 +145,7 @@ function service (generator, name, props, specs, context, state, inject) {
   validateJsonSchema(name, feathersSpecs[name]);
 
   // Custom template context.
-  const { typescriptTypes, typescriptExtends } =
+  const { typescriptTypes, typescriptExtends, typescriptEnums } =
     serviceSpecsToTypescript(specsService, feathersSpecs[name], feathersSpecs[name]._extensions);
 
   let graphqlTypeName;
@@ -183,6 +183,7 @@ function service (generator, name, props, specs, context, state, inject) {
   context1.mongoJsonSchemaStr = stringifyPlus(context1.mongoJsonSchema);
   context1.mongooseSchemaStr = stringifyPlus(context1.mongooseSchema, { nativeFuncs: mongooseNativeFuncs });
   context1.typescriptTypesStr = typescriptTypes.map(str => `  ${str}${context1.sc}`).join(`${EOL}`);
+  context1.typescriptEnumsArr = typescriptEnums;
   context1.typescriptExtendsStr = typescriptExtends.map(str => `  ${str}${context1.sc} // change if needed`).join(`${EOL}`);
 
   const { seqModel, seqFks } = serviceSpecsToSequelize(feathersSpecs[name], feathersSpecs[name]._extensions);
@@ -402,6 +403,8 @@ function service (generator, name, props, specs, context, state, inject) {
       make: hooks => `${hooks.length ? ' ' : ''}${hooks.join(', ')}${hooks.length ? ' ' : ''}`
     };
   }
+
+  return { typescriptEnums };
 }
 
 // eslint-disable-next-line no-unused-vars
