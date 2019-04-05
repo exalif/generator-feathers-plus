@@ -1,11 +1,11 @@
 
 // Define TypeScript interface for service `<%= serviceName %>`. (Can be re-generated.)
 <%# --- if-1 starts below. -%>
-<%if (typescriptEnumsArr && typescriptEnumsArr.length > 0) { %>
+<%if (typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { %>
 <%# --- forEach-1 starts below. Loop thru the service enums. -%>
 <% __importEnumNames = '';
-  typescriptEnumsArr.forEach((__enumItem, i, arr) => {
-    __importEnumNames += __enumItem.name + Object.is(arr.length - 1, key) ? '' : ' ';
+  typescriptEnumsImportsStr.forEach((__enumItemName, i, arr) => {
+    __importEnumNames += __enumItemName + Object.is(arr.length - 1, key) ? '' : ' ';
   });
 -%>
 <%# --- forEach-1 ends above. -%>
