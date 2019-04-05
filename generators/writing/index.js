@@ -20,7 +20,7 @@ const { resources } = require('./resources');
 const serviceSpecsExpand = require('../../lib/service-specs-expand');
 const stringifyPlus = require('../../lib/stringify-plus');
 const { updateSpecs } = require('../../lib/specs');
-const { generateEnumsTyping } = require('../../lib/generate-enum-typing');
+const generateEnumsTyping = require('../../lib/generate-enum-typing');
 
 const debug = makeDebug('generator-feathers-plus:main');
 const EOL = '\n';

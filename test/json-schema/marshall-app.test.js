@@ -1564,7 +1564,7 @@ const expectedTypescriptTypes = {
     "panoId: unknown",
     "name: string",
     "description: string",
-    "type: string",
+    "type: TypeEnum",
     "content: string",
     "mediaUrl: string",
     "uploadInfo: string",
@@ -1585,7 +1585,7 @@ const expectedTypescriptTypes = {
   infoboxes: [
     "name: string",
     "description: string",
-    "type: string",
+    "type: TypeEnum",
     "primaryPhotoUrl: string",
     "primaryPhotoCoordinates: string",
     "primaryPhotoUploadInfo: string",
@@ -1597,14 +1597,14 @@ const expectedTypescriptTypes = {
     "meta: string"
   ],
   panoHotspots: [
-    "type: string",
+    "type: TypeEnum",
     "envPanoId: unknown",
     "panoId: unknown",
     "targetPanoId: unknown",
     "infoboxId: unknown",
     "hotspotIconId: unknown",
     "hotspotIconSize: number",
-    "linkMeta: {\n  url: string;\n  target: string\n}",
+    "linkMeta: {\n  url: string;\n  target: TargetEnum\n}",
     "percentX: number",
     "percentY: number",
     "coordinates: number[]"
@@ -1634,7 +1634,7 @@ const expectedTypescriptTypes = {
     "createdById: unknown"
   ],
   statViews: [
-    "type: string",
+    "type: TypeEnum",
     "userId: unknown",
     "envId: unknown",
     "panoId: unknown",
@@ -1647,7 +1647,7 @@ const expectedTypescriptTypes = {
   tourMenuItems: [
     "text: string",
     "envId: unknown",
-    "type: string",
+    "type: TypeEnum",
     "panoId: unknown",
     "infoboxId: unknown",
     "sortOrder: number"
