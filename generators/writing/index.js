@@ -20,7 +20,7 @@ const { resources } = require('./resources');
 const serviceSpecsExpand = require('../../lib/service-specs-expand');
 const stringifyPlus = require('../../lib/stringify-plus');
 const { updateSpecs } = require('../../lib/specs');
-const generateEnumsTyping = require('../../lib/generate-enum-typing');
+const generateEnumTyping = require('../../lib/generate-enum-typing');
 
 const debug = makeDebug('generator-feathers-plus:main');
 const EOL = '\n';
@@ -209,7 +209,7 @@ module.exports = function generatorWriting (generator, what) {
 
       if (!context.isJs && typescriptEnums.length > 0) {
         typescriptEnums = uniqBy(typescriptEnums, 'name');
-        generateEnumsTyping(generator, specs, context, state, typescriptEnums);
+        generateEnumTyping(generator, specs, context, state, typescriptEnums);
       }
 
       Object.keys(specs.hooks || {}).forEach(name => {
