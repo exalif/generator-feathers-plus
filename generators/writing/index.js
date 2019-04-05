@@ -207,9 +207,8 @@ module.exports = function generatorWriting (generator, what) {
         typescriptEnums.push(enums);
       });
 
-      typescriptEnums = uniqBy(typescriptEnums, 'name');
-
-      if (context.isJs) {
+      if (!context.isJs && typescriptEnums.length > 0) {
+        typescriptEnums = uniqBy(typescriptEnums, 'name');
         generateEnumsTyping(generator, specs, context, state, typescriptEnums);
       }
 
