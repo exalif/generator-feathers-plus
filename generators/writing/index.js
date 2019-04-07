@@ -204,7 +204,7 @@ module.exports = function generatorWriting (generator, what) {
 
       Object.keys(specs.services || {}).forEach(name => {
         const { typescriptEnums: enums } = service(generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr);
-        typescriptGlobalEnumsArr.concat(enums);
+        typescriptGlobalEnumsArr = typescriptGlobalEnumsArr.concat(enums);
       });
 
       if (!context.isJs && typescriptGlobalEnumsArr.length > 0) {
