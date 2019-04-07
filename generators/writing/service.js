@@ -45,7 +45,7 @@ module.exports = {
   service,
 };
 
-function service (generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr) {
+function service (generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr = []) {
   debug('service()');
 
   const {

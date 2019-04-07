@@ -1597,7 +1597,7 @@ const expectedTypescriptTypes = {
     "meta: string"
   ],
   panoHotspots: [
-    "type: TypeEnum",
+    "type: PanoHotspotsTypeEnum",
     "envPanoId: unknown",
     "panoId: unknown",
     "targetPanoId: unknown",
@@ -1634,7 +1634,7 @@ const expectedTypescriptTypes = {
     "createdById: unknown"
   ],
   statViews: [
-    "type: TypeEnum",
+    "type: StatViewsTypeEnum",
     "userId: unknown",
     "envId: unknown",
     "panoId: unknown",
@@ -1647,7 +1647,7 @@ const expectedTypescriptTypes = {
   tourMenuItems: [
     "text: string",
     "envId: unknown",
-    "type: TypeEnum",
+    "type: TourMenuItemsTypeEnum",
     "panoId: unknown",
     "infoboxId: unknown",
     "sortOrder: number"
