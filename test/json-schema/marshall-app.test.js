@@ -1140,6 +1140,10 @@ const fakeFeathersSchemas = {
         type: 'string',
         faker: 'address.city'
       },
+      type: {
+        type: 'string',
+        enum:  [ 'photo', 'video', '360', 'content-image', 'content-markdown' ]
+      },
       slug: {
         type: 'string',
         faker: {
@@ -1611,6 +1615,7 @@ const expectedTypescriptTypes = {
   ],
   panos: [
     "name: string",
+    "type: TypeEnum",
     "slug: string",
     "imageUrl: string",
     "uploadInfo: {\n\n}",
@@ -2340,6 +2345,16 @@ const expectedMongoJsonSchema = {
         faker: "image.imageUrl",
         bsonType: "string"
       },
+      type: {
+        bsonType: "string",
+        enum: [
+          "photo",
+          "video",
+          "360",
+          "content-image",
+          "content-markdown"
+        ]
+      },
       uploadInfo: {
         bsonType: "object",
         additionalProperties: false,
@@ -2875,6 +2890,16 @@ const expectedMongooseSchema = {
       type: String,
       required: true
     },
+    type: {
+      type: String,
+      enum: [
+        "photo",
+        "video",
+        "360",
+        "content-image",
+        "content-markdown"
+      ]
+    },
     uploadInfo: {},
     location: {
       type: {
@@ -3285,6 +3310,9 @@ const expectedSeqModel = {
     imageUrl: {
       type: sequelizeTypeEquivalences.text,
       allowNull: false
+    },
+    type: {
+      type: Sequelize.ENUM(["photo","video","360","content-image","content-markdown"])
     },
     uploadInfo: {
       type: sequelizeTypeEquivalences.jsonb
