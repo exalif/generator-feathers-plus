@@ -39,10 +39,14 @@ module.exports = function jsonSchemaRunner(options) {
   Object.keys(specs.services).forEach(name => {
     console.log(`        compare ${name}`);
 
-    const { typescriptTypes, typescriptExtends } =
-      serviceSpecsToTypescript(specs.services[name], feathersSpecs[name], feathersSpecs[name]._extensions);
+    const typescriptGlobalEnumsArray = []
+
+    const { typescriptTypes, typescriptExtends, typescriptEnums: enums } =
+      serviceSpecsToTypescript(specs.services[name], feathersSpecs[name], feathersSpecs[name]._extensions, 1, [], typescriptGlobalEnumsArray);
     // inspector(`\n\n.....${name} typescriptTypes`, typescriptTypes);
     // inspector(`.....${name} typescriptExtends`, typescriptExtends);
+
+    typescriptGlobalEnumsArray.concat(enums);
 
     assert.deepEqual(typescriptTypes, expectedTypescriptTypes[name], 'typescriptTypes wrong');
     assert.deepEqual(typescriptExtends, expectedTypescriptExtends[name], 'typescriptExtends wrong');

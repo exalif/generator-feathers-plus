@@ -200,16 +200,15 @@ module.exports = function generatorWriting (generator, what) {
 
       app(generator, props, specs, context, state);
 
-      let typescriptEnums = [];
+      let typescriptGlobalEnumsArr = [];
 
       Object.keys(specs.services || {}).forEach(name => {
-        const { typescriptEnums: enums } = service(generator, name, props, specs, context, state, inject);
-        typescriptEnums.concat(enums);
+        const { typescriptEnums: enums } = service(generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr);
+        typescriptGlobalEnumsArr.concat(enums);
       });
 
-      if (!context.isJs && typescriptEnums.length > 0) {
-        typescriptEnums = uniqBy(typescriptEnums, 'name');
-        generateEnumTyping(generator, specs, context, state, typescriptEnums);
+      if (!context.isJs && typescriptGlobalEnumsArr.length > 0) {
+        generateEnumTyping(generator, specs, context, state, typescriptGlobalEnumsArr);
       }
 
       Object.keys(specs.hooks || {}).forEach(name => {

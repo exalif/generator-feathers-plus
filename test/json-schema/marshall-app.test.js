@@ -1585,7 +1585,7 @@ const expectedTypescriptTypes = {
   infoboxes: [
     "name: string",
     "description: string",
-    "type: TypeEnum",
+    "type: InfoboxesTypeEnum",
     "primaryPhotoUrl: string",
     "primaryPhotoCoordinates: string",
     "primaryPhotoUploadInfo: string",

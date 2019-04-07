@@ -45,7 +45,7 @@ module.exports = {
   service,
 };
 
-function service (generator, name, props, specs, context, state, inject) {
+function service (generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr) {
   debug('service()');
 
   const {
@@ -146,7 +146,7 @@ function service (generator, name, props, specs, context, state, inject) {
 
   // Custom template context.
   const { typescriptTypes, typescriptExtends, typescriptEnums, typescriptEnumsImports } =
-    serviceSpecsToTypescript(specsService, feathersSpecs[name], feathersSpecs[name]._extensions);
+    serviceSpecsToTypescript(specsService, feathersSpecs[name], feathersSpecs[name]._extensions, 1, [], typescriptGlobalEnumsArr);
 
   let graphqlTypeName;
   if (specs.graphql && specsService.graphql && name !== 'graphql') {
