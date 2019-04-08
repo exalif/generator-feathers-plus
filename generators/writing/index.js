@@ -3,7 +3,7 @@
 const makeDebug = require('debug');
 const merge = require('lodash.merge');
 
-const { camelCase, kebabCase, snakeCase, upperFirst, uniqBy } = require('lodash');
+const { camelCase, kebabCase, snakeCase, upperFirst } = require('lodash');
 const { join } = require('path');
 
 const { app } = require('./app');
