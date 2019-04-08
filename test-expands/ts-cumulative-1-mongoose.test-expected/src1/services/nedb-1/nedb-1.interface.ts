@@ -1,5 +1,6 @@
 
 // Define TypeScript interface for service `nedb1`. (Can be re-generated.)
+// Import required enums
 import { TypeEnum } from '../../models/enums';
 // !code: imports // !end
 // !code: init // !end

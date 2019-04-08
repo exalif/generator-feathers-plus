@@ -10,7 +10,14 @@ import mongoose from 'mongoose';
 let moduleExports = merge({},
   // !<DEFAULT> code: model
   {
-    nedb2Id: mongoose.Schema.Types.ObjectId
+    nedb2Id: mongoose.Schema.Types.ObjectId,
+    type: {
+      type: String,
+      enum: [
+        "some",
+        "value"
+      ]
+    }
   },
   // !end
   // !code: moduleExports // !end

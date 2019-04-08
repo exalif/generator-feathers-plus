@@ -16,6 +16,13 @@ let moduleExports = merge({},
       },
       nedb2Id: {
         bsonType: "objectId"
+      },
+      type: {
+        enum: [
+          "some",
+          "value"
+        ],
+        bsonType: "string"
       }
     }
   },

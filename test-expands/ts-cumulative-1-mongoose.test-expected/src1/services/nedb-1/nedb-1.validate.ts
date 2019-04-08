@@ -28,6 +28,13 @@ let base = merge({},
       },
       nedb2Id: {
         type: ID
+      },
+      type: {
+        type: "string",
+        enum: [
+          "some",
+          "value"
+        ]
       }
     }
   },
