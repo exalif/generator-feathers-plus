@@ -9,6 +9,7 @@ type Nedb1 {
   id: ID
   _id: ID
   nedb2Id: ID
+  type: String
   nedb2: Nedb2!
 }
  
