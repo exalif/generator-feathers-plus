@@ -4,8 +4,8 @@
 <%if (typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { %>
 <%# --- forEach-1 starts below. Loop thru the service enums. -%>
 <% __importEnumNames = '';
-  typescriptEnumsImportsStr.forEach((__enumItemName, i, arr) => {
-    __importEnumNames += __enumItemName + Object.is(arr.length - 1, key) ? '' : ' ';
+  typescriptEnumsImportsStr.forEach((__enumItemName, index, arr) => {
+    __importEnumNames += __enumItemName + Object.is(arr.length - 1, index) ? '' : ' ';
   });
 -%>
 <%# --- forEach-1 ends above. -%>
