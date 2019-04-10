@@ -18,9 +18,6 @@ let moduleExports = merge({},
     },
     nedb2Id: {
       type: DataTypes.INTEGER
-    },
-    type: {
-      type: Sequelize.ENUM(["some","value"])
     }
   } as DefineAttributes,
   // !end

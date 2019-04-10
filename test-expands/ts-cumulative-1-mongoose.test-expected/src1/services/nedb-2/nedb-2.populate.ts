@@ -96,7 +96,6 @@ const twoLevelsFields = {
       id: 1,
       _id: 1,
       nedb2Id: 1,
-      type: 1,
       nedb2: {},
     },
   }
