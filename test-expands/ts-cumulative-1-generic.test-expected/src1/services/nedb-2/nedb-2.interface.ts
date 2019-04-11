@@ -1,5 +1,7 @@
 
 // Define TypeScript interface for service `nedb2`. (Can be re-generated.)
+// Import required enums
+import { ItemTypeEnum } from '../../models/enums';
 // !code: imports // !end
 // !code: init // !end
 
@@ -8,6 +10,7 @@ export interface Nedb2Base {
   // !<DEFAULT> code: interface
   _id: unknown;
   nedb1Id: unknown;
+  itemType: ItemTypeEnum;
   // !end
 }
 

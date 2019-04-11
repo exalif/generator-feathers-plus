@@ -26,6 +26,19 @@ let schema = {
     id: { type: 'ID' },
     _id: { type: 'ID' },
     nedb2Id: { type: 'ID' },
+    itemType: {
+      type: 'string',
+      enum: ['offer', 'bid', 'auction']
+    },
+    relatedItem: {
+      type: 'object',
+      properties: {
+        itemType: {
+          type: 'string',
+          enum: ['hardware', 'wood', 'toy']
+        }
+      }
+    }
     // !end
   },
   // !code: schema_more // !end
