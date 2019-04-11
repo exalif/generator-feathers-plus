@@ -14,7 +14,12 @@ module.exports = class AllGenerator extends Generator {
   async prompting () {
     await Generator.asyncInit(this);
     initSpecs('all');
-    const { _specs: specs } = this;
+    const { props, _specs: specs } = this;
+
+    // z-generator-writing.test.js calls us with _opts: { calledByTest: { name: serviceName } }
+    if (this._opts.calledByTest) {
+      props.generateTypeScriptEnums = true;
+    }
 
     this.log();
     this.log([
@@ -28,11 +33,21 @@ module.exports = class AllGenerator extends Generator {
       name: 'confirmation',
       message: 'Regenerate the entire application?',
       type: 'confirm'
+    }, {
+      name: 'generateTypeScriptEnums',
+      message: 'Generate Typescript enums?',
+      type: 'confirm',
+      default () {
+        return false;
+      },
+      when: (answers) => answers.confirmation && specs.options.ts
     }];
 
     return this.prompt(prompts)
       .then(answers => {
         if (!answers.confirmation) process.exit(0);
+
+        Object.assign(this.props, answers);
       });
   }
 

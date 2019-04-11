@@ -1,9 +1,9 @@
 
 // Define TypeScript interface for service `<%= serviceName %>`. (Can be re-generated.)
 <%# --- if-1 starts below. -%>
-<% if (typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { -%>
+<% if (generateTypeScriptEnums && typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { -%>
 // Import required enums
-import {<%- typescriptEnumsImportsStr %> } from '../../models/enums'<%- sc %>
+import {<%- typescriptEnumsImportsStr %> } from 'src/models/enums'<%- sc %>
 <% } -%>
 <%# --- if-1 ends above. -%>
 <%- insertFragment('imports') %>
