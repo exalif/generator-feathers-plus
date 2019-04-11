@@ -78,18 +78,18 @@ import { Id, NullableId, Paginated, Params, ServiceMethods, SetupMethod } from '
 
 <%- insertFragment('interface', [
   '// tslint:disable-next-line:no-empty-interface',
-  'interface ServiceOptions {}'
+  'interface ServiceOptions { }'
 ]) %>
 
 export class Service implements Partial<ServiceMethods<any>>, SetupMethod {
   <%- insertFragment('properties', '  public app!: App;') %>
 
-  constructor (private options: ServiceOptions = {}) {
+  constructor(private options: ServiceOptions = {}) {
     <%- insertFragment('constructor1') %>
   }
 
   <%- insertFragment('setup', [
-    '  public setup (app: App, path: string): void {',
+    '  public setup(app: App, path: string): void {',
     `    this.app = app${sc}`,
     '  }'
   ]) %>
