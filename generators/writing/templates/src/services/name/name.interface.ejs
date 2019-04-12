@@ -3,8 +3,8 @@
 <%# --- if-1 starts below. -%>
 <% if (generateTypeScriptEnums && typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { -%>
 // Import required enums
-import {<%- typescriptEnumsImportsStr %> } from 'src/models/enums'<%- sc %>
-<% } -%>
+import {<%- typescriptEnumsImportsStr %> } from '../../${subFolderReverse}models/enums'<%- sc %>
+<% } -%>../../
 <%# --- if-1 ends above. -%>
 <%- insertFragment('imports') %>
 <%- insertFragment('init') %>
