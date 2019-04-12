@@ -185,10 +185,8 @@ function service (generator, name, props, specs, context, state, inject, typescr
   context1.typescriptTypesStr = typescriptTypes.map(str => `  ${str}${context1.sc}`).join(`${EOL}`);
   context1.typescriptEnumsImportsStr = typescriptEnumsImports.map((str, index, arr) => ` ${str}`);
   context1.typescriptExtendsStr = typescriptExtends.map(str => `  ${str}${context1.sc} // change if needed`).join(`${EOL}`);
-
-  console.log(context1.typescriptTypesStr);
-  console.log(context1.typescriptExtendsStr);
   context1.generateTypeScriptEnums = generateTypeScriptEnums;
+
 
   const { seqModel, seqFks } = serviceSpecsToSequelize(feathersSpecs[name], feathersSpecs[name]._extensions);
 
