@@ -42,7 +42,7 @@ module.exports = function jsonSchemaRunner(options) {
     console.log(`        compare ${name}`);
 
     const { typescriptTypes, typescriptExtends, typescriptEnums: enums } =
-      serviceSpecsToTypescript(specs.services[name], feathersSpecs[name], feathersSpecs[name]._extensions, 1, [], typescriptGlobalEnumsArray);
+      serviceSpecsToTypescript(specs.services[name], feathersSpecs[name], feathersSpecs[name]._extensions, 1, [], typescriptGlobalEnumsArray, [], [], true);
     // inspector(`\n\n.....${name} typescriptTypes`, typescriptTypes);
     // inspector(`.....${name} typescriptExtends`, typescriptExtends);
 
