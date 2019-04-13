@@ -16,11 +16,6 @@ module.exports = class AllGenerator extends Generator {
     initSpecs('all');
     const { props, _specs: specs } = this;
 
-    // z-generator-writing.test.js calls us with _opts: { calledByTest: { name: serviceName } }
-    if (this._opts.calledByTest) {
-      props.generateTypeScriptEnums = true;
-    }
-
     this.log();
     this.log([
       chalk.green.bold('Regenerate the entire app in dir '),
@@ -48,6 +43,11 @@ module.exports = class AllGenerator extends Generator {
         if (!answers.confirmation) process.exit(0);
 
         Object.assign(this.props, answers);
+
+        // Set missing defaults when call during test
+        if (this._opts.calledByTest && this._opts.calledByTest.prompts) {
+          this.props = Object.assign({}, this._opts.calledByTest.prompts, this. props);
+        }
       });
   }
 

@@ -282,7 +282,15 @@ const tests = [
     { testName: 'ts-cumulative-1-nedb.test' },
 
   // .ts version of cumulative-1-generic.test
-    { testName: 'ts-cumulative-1-generic.test' },
+    { testName: 'ts-cumulative-1-generic.test', specsChanges: [
+      {
+        generate: 'all',
+        prompts: { generateTypeScriptEnums: true },
+        calledByTest: {
+          prompts: { generateTypeScriptEnums: true },
+        }
+      },
+    ]},
 
   // .ts version of cumulative-1-memory.test
     { testName: 'ts-cumulative-1-memory.test' },
