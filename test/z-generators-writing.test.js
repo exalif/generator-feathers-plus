@@ -285,9 +285,9 @@ const tests = [
     { testName: 'ts-cumulative-1-generic.test', specsChanges: [
       {
         generate: 'all',
-        prompts: { generateTypeScriptEnums: true },
+        prompts: { generateTypeScriptEnums: true, reuseIdenticalEnums: true },
         calledByTest: {
-          prompts: { generateTypeScriptEnums: true },
+          prompts: { generateTypeScriptEnums: true, reuseIdenticalEnums: true },
         }
       },
     ]},

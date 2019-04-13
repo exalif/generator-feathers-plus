@@ -36,6 +36,14 @@ module.exports = class AllGenerator extends Generator {
         return false;
       },
       when: (answers) => answers.confirmation && specs.options.ts
+    }, {
+      name: 'reuseIdenticalEnums',
+      message: 'Reuse the name of existing enums with identical values?',
+      type: 'confirm',
+      default () {
+        return false;
+      },
+      when: (answers) => answers.confirmation && answers.generateTypeScriptEnums
     }];
 
     return this.prompt(prompts)

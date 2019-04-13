@@ -203,7 +203,7 @@ module.exports = function generatorWriting (generator, what) {
       let typescriptGlobalEnumsArr = [];
 
       Object.keys(specs.services || {}).forEach(name => {
-        const { typescriptEnums: enums } = service(generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr, props.generateTypeScriptEnums);
+        const { typescriptEnums: enums } = service(generator, name, props, specs, context, state, inject, typescriptGlobalEnumsArr, props.generateTypeScriptEnums, props.reuseIdenticalEnums);
         typescriptGlobalEnumsArr = typescriptGlobalEnumsArr.concat(enums);
       });
 
