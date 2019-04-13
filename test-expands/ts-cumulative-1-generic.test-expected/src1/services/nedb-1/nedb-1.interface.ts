@@ -13,7 +13,8 @@ export interface Nedb1Base {
   nedb2Id: unknown;
   itemType: ItemTypeEnum;
   relatedItem: {
-  itemType: RelatedItemItemTypeEnum
+  itemType: RelatedItemItemTypeEnum;
+  additionalTypes: ItemTypeEnum[]
 };
   // !end
 }

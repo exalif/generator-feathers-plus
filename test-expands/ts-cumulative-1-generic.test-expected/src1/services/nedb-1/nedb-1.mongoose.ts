@@ -27,7 +27,17 @@ let moduleExports = merge({},
           "wood",
           "toy"
         ]
-      }
+      },
+      additionalTypes: [
+        {
+          type: String,
+          enum: [
+            "offer",
+            "bid",
+            "auction"
+          ]
+        }
+      ]
     }
   },
   // !end

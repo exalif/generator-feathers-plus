@@ -47,6 +47,17 @@ let base = merge({},
               "wood",
               "toy"
             ]
+          },
+          additionalTypes: {
+            type: "array",
+            items: {
+              enum: [
+                "offer",
+                "bid",
+                "auction"
+              ],
+              type: "string"
+            }
           }
         }
       }

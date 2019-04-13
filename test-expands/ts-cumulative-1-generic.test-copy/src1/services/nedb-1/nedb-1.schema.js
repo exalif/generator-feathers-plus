@@ -27,7 +27,13 @@ let schema = {
         itemType: {
           type: 'string',
           enum: ['hardware', 'wood', 'toy']
-        }
+        },
+        additionalTypes: {
+          type: 'array',
+          items: {
+            enum: ['offer', 'bid', 'auction']
+          }
+        },
       }
     }
     // !end

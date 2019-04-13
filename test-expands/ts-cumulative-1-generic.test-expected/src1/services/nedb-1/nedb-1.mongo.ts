@@ -39,6 +39,17 @@ let moduleExports = merge({},
               "toy"
             ],
             bsonType: "string"
+          },
+          additionalTypes: {
+            items: {
+              enum: [
+                "offer",
+                "bid",
+                "auction"
+              ],
+              type: "string"
+            },
+            bsonType: "array"
           }
         }
       }
