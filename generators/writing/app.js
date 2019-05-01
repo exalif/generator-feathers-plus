@@ -166,9 +166,6 @@ function app (generator, props, specs, context, state) {
     copy([tpl, 'LICENSE'],       'LICENSE', WRITE_IF_NEW),
     tmpl([tpl, 'README.md.ejs'], 'README.md', WRITE_IF_NEW),
 
-    copy([tpl, 'public', 'favicon.ico'],      ['public', 'favicon.ico'],    WRITE_IF_NEW),
-    copy([tpl, 'public', 'index.html'],       ['public', 'index.html'],     WRITE_IF_NEW),
-
     tmpl([tpl, 'test', 'app.test.ejs'],       [testDir, `app.test.${js}`],  WRITE_IF_NEW),
 
     tmpl([tpl, 'src', 'hooks', 'log.ejs'],    [src, 'hooks', `log.${js}`]),
@@ -192,6 +189,13 @@ function app (generator, props, specs, context, state) {
     tmpl([tpl, 'src', 'typings.d.ejs'],     [src, 'typings.d.ts'],             WRITE_ALWAYS, isJs),
   ];
 
+  if (!specs.app.skipPublic) {
+    todos = todos.concat(
+      copy([tpl, 'public', 'favicon.ico'],      ['public', 'favicon.ico'],    WRITE_IF_NEW),
+      copy([tpl, 'public', 'index.html'],       ['public', 'index.html'],     WRITE_IF_NEW),
+    );
+  }
+
   // generate name.json files for test environments
   configDefault.tests.environmentsAllowingSeedData.forEach(envName => {
     const defaultConfigTest = makeConfig.configTest(generator, envName);
@@ -209,16 +213,18 @@ function app (generator, props, specs, context, state) {
     );
   });
 
-  if (isJs) {
-    todos = todos.concat(
-      json(eslintrc, '.eslintrc.json', WRITE_ALWAYS, eslintrcExists && !eslintrcChanged),
-    );
-  } else {
-    todos = todos.concat(
-      json(tslintjson, 'tslint.json', WRITE_ALWAYS, tslintExists && !tslintJsonChanged),
-      tmpl([tpl, 'tsconfig.json'], 'tsconfig.json', WRITE_IF_NEW),
-      copy([tpl, 'tsconfig.test.json'], 'tsconfig.test.json', WRITE_IF_NEW),
-    );
+  if (!specs.app.skipGenerateChore) {
+    if (isJs ) {
+      todos = todos.concat(
+        json(eslintrc, '.eslintrc.json', WRITE_ALWAYS, eslintrcExists && !eslintrcChanged),
+      );
+    } else {
+      todos = todos.concat(
+        json(tslintjson, 'tslint.json', WRITE_ALWAYS, tslintExists && !tslintJsonChanged),
+        tmpl([tpl, 'tsconfig.json'], 'tsconfig.json', WRITE_IF_NEW),
+        copy([tpl, 'tsconfig.test.json'], 'tsconfig.test.json', WRITE_IF_NEW),
+      );
+    }
   }
 
   // Generate modules
@@ -310,8 +316,10 @@ function app (generator, props, specs, context, state) {
   debug('dependencies', generator.dependencies);
   debug('dev-dependencies', generator.devDependencies);
 
-  generator._packagerInstall(generator.dependencies, { save: true });
-  generator._packagerInstall(generator.devDependencies, { saveDev: true });
+  if (!specs.app.skipGenerateChore) {
+    generator._packagerInstall(generator.dependencies, { save: true });
+    generator._packagerInstall(generator.devDependencies, { saveDev: true });
+  }
 
   debug('app() ended');
 }
