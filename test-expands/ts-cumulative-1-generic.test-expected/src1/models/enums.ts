@@ -5,15 +5,27 @@
 
 // !<DEFAULT> code: enums
 export enum ItemTypeEnum {
-  offer,
-  bid,
-  auction,
+  offer = 'offer',
+  bid = 'bid',
+  auction = 'auction',
 }
 
 export enum RelatedItemItemTypeEnum {
-  hardware,
-  wood,
-  toy,
+  hardWare = 'HardWare',
+  wood = 'wood',
+  toy = 'toy',
+}
+
+export enum ItemSizeEnum {
+  'small' = 1,
+  'medium' = 2,
+  'large' = 3,
+}
+
+export enum AdditionalSizesEnum {
+  'wide' = 1,
+  'tall' = 2,
+  'narrow' = 3,
 }
 // !end
 

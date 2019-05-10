@@ -23,7 +23,7 @@ let moduleExports = merge({},
       itemType: {
         type: String,
         enum: [
-          "hardware",
+          "HardWare",
           "wood",
           "toy"
         ]
@@ -35,6 +35,42 @@ let moduleExports = merge({},
             "offer",
             "bid",
             "auction"
+          ]
+        }
+      ],
+      itemSizeWithoutKeys: {
+        type: Number,
+        enum: [
+          1,
+          2,
+          3
+        ]
+      },
+      itemSize: {
+        type: Number,
+        enum: [
+          1,
+          2,
+          3
+        ]
+      },
+      additionalSizes: [
+        {
+          type: Number,
+          enum: [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      additionalSizesWithoutKeys: [
+        {
+          type: Number,
+          enum: [
+            1,
+            2,
+            3
           ]
         }
       ]

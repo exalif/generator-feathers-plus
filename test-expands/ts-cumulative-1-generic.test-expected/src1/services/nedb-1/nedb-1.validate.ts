@@ -43,7 +43,7 @@ let base = merge({},
           itemType: {
             type: "string",
             enum: [
-              "hardware",
+              "HardWare",
               "wood",
               "toy"
             ]
@@ -57,6 +57,54 @@ let base = merge({},
                 "auction"
               ],
               type: "string"
+            }
+          },
+          itemSizeWithoutKeys: {
+            type: "number",
+            enum: [
+              1,
+              2,
+              3
+            ]
+          },
+          itemSize: {
+            type: "number",
+            enum: [
+              1,
+              2,
+              3
+            ],
+            enumKeys: [
+              "small",
+              "medium",
+              "large"
+            ]
+          },
+          additionalSizes: {
+            type: "array",
+            items: {
+              type: "number",
+              enum: [
+                1,
+                2,
+                3
+              ],
+              enumKeys: [
+                "wide",
+                "tall",
+                "narrow"
+              ]
+            }
+          },
+          additionalSizesWithoutKeys: {
+            type: "array",
+            items: {
+              type: "number",
+              enum: [
+                1,
+                2,
+                3
+              ]
             }
           }
         }

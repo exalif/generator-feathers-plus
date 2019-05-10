@@ -34,7 +34,7 @@ let moduleExports = merge({},
           },
           itemType: {
             enum: [
-              "hardware",
+              "HardWare",
               "wood",
               "toy"
             ],
@@ -48,6 +48,54 @@ let moduleExports = merge({},
                 "auction"
               ],
               type: "string"
+            },
+            bsonType: "array"
+          },
+          itemSizeWithoutKeys: {
+            enum: [
+              1,
+              2,
+              3
+            ],
+            bsonType: "number"
+          },
+          itemSize: {
+            enum: [
+              1,
+              2,
+              3
+            ],
+            enumKeys: [
+              "small",
+              "medium",
+              "large"
+            ],
+            bsonType: "number"
+          },
+          additionalSizes: {
+            items: {
+              type: "number",
+              enum: [
+                1,
+                2,
+                3
+              ],
+              enumKeys: [
+                "wide",
+                "tall",
+                "narrow"
+              ]
+            },
+            bsonType: "array"
+          },
+          additionalSizesWithoutKeys: {
+            items: {
+              type: "number",
+              enum: [
+                1,
+                2,
+                3
+              ]
             },
             bsonType: "array"
           }
