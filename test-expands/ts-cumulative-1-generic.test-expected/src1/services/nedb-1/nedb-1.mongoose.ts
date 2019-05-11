@@ -88,7 +88,27 @@ let moduleExports = merge({},
           2,
           3
         ]
-      }
+      },
+      existingEnumArray: [
+        {
+          type: Number,
+          enum: [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      existingEnumArrayAbs: [
+        {
+          type: Number,
+          enum: [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
     }
   },
   // !end

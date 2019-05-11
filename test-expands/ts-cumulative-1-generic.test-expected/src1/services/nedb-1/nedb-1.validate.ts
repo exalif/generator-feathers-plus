@@ -127,6 +127,33 @@ let base = merge({},
             useExistingEnum: "ExistingEnumWithAbs",
             existingEnumPath: "@someAlias/existing.enum",
             existingEnumPathRelativeToModels: false
+          },
+          existingEnumArray: {
+            type: "array",
+            items: {
+              type: "number",
+              enum: [
+                1,
+                2,
+                3
+              ],
+              useExistingEnum: "ExistingEnumInArray",
+              existingEnumPath: "existing/array-type.enum"
+            }
+          },
+          existingEnumArrayAbs: {
+            type: "array",
+            items: {
+              type: "number",
+              enum: [
+                1,
+                2,
+                3
+              ],
+              useExistingEnum: "ExistingEnumInArrayAbs",
+              existingEnumPath: "@existing/array-type-abs.enum",
+              existingEnumPathRelativeToModels: false
+            }
           }
         }
       }
