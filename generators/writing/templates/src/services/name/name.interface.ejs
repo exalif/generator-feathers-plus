@@ -10,8 +10,7 @@
   <% existingTypescriptEnumsImportsArr.forEach(function(existingEnum) { %>
     <% if (existingEnum.relativePath) { -%>
       <%- tplTsOnly([`import {${existingEnum.enumName} } from '../../${subFolderReverse}models/${existingEnum.enumPath}'${sc}`, '', '']) -%>
-    <% } -%>
-    <% else { -%>
+    <% } else { -%>
       <%- tplTsOnly([`import {${existingEnum.enumName} } from '${existingEnum.enumPath}'${sc}`, '', '']) -%>
     <% } -%>
   <% }) %>
