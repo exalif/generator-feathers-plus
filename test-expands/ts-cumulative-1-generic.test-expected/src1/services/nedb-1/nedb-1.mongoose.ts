@@ -73,7 +73,22 @@ let moduleExports = merge({},
             3
           ]
         }
-      ]
+      ],
+      existingTypeWithRelativePath: {
+        type: String,
+        enum: [
+          "one",
+          "two"
+        ]
+      },
+      existingTypeWithAbsolutePath: {
+        type: Number,
+        enum: [
+          1,
+          2,
+          3
+        ]
+      }
     }
   },
   // !end

@@ -98,6 +98,27 @@ let moduleExports = merge({},
               ]
             },
             bsonType: "array"
+          },
+          existingTypeWithRelativePath: {
+            enum: [
+              "one",
+              "two"
+            ],
+            useExistingEnum: "ExistingEnum",
+            existingEnumPath: "existing/type.enum",
+            existingEnumPathRelativeToModels: true,
+            bsonType: "string"
+          },
+          existingTypeWithAbsolutePath: {
+            enum: [
+              1,
+              2,
+              3
+            ],
+            useExistingEnum: "ExistingEnumWithAbs",
+            existingEnumPath: "@someAlias/existing.enum",
+            existingEnumPathRelativeToModels: false,
+            bsonType: "number"
           }
         }
       }

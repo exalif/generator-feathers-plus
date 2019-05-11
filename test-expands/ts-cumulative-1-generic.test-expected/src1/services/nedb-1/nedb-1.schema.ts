@@ -67,6 +67,20 @@ let schema = {
             enum: [1, 2, 3]
           }
         },
+        existingTypeWithRelativePath: {
+          type: 'string',
+          enum: ['one', 'two'],
+          useExistingEnum: 'ExistingEnum',
+          existingEnumPath: 'existing/type.enum',
+          existingEnumPathRelativeToModels: true
+        },
+        existingTypeWithAbsolutePath: {
+          type: 'number',
+          enum: [1, 2, 3],
+          useExistingEnum: 'ExistingEnumWithAbs',
+          existingEnumPath: '@someAlias/existing.enum',
+          existingEnumPathRelativeToModels: false
+        }
       }
     }
     // !end
