@@ -1,11 +1,24 @@
 
 // Define TypeScript interface for service `<%= serviceName %>`. (Can be re-generated.)
 <%# --- if-1 starts below. -%>
-<% if (generateTypeScriptEnums && typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { -%>
+<% if (generateTypeScriptEnums && (typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) || (existingTypescriptEnumsImportsArr && existingTypescriptEnumsImportsArr.length > 0)) { -%>
 // Import required enums
-<%- tplTsOnly([`import {${typescriptEnumsImportsStr} } from '../../${subFolderReverse}models/enums'${sc}`, '', '']) -%>
 <% } -%>
 <%# --- if-1 ends above. -%>
+<%# --- if-2 starts below. -%>
+<% if (generateTypeScriptEnums && typescriptEnumsImportsStr && typescriptEnumsImportsStr.length > 0) { -%>
+<%- tplTsOnly([`import {${typescriptEnumsImportsStr} } from '../../${subFolderReverse}models/enums'${sc}`, '', '']) -%>
+<% } -%>
+<%# --- if-2 ends above. -%>
+<%# --- if-3 starts below. -%>
+<% if (generateTypeScriptEnums && existingTypescriptEnumsImportsArr && existingTypescriptEnumsImportsArr.length > 0) { -%>
+<%# --- foreach-1 starts below. -%>
+<% existingTypescriptEnumsImportsArr.forEach(function(existingEnum) { -%>
+<%- tplTsOnly([existingEnum.relativePath ? `import { ${existingEnum.enumName} } from '../../${subFolderReverse}models/${existingEnum.enumPath}'${sc}` : `import { ${existingEnum.enumName} } from '${existingEnum.enumPath}'${sc}`, '', '']) -%>
+<% }) -%>
+<%# --- foreach-1 ends above. -%>
+<% } -%>
+<%# --- if-3 ends above. -%>
 <%- insertFragment('imports') %>
 <%- insertFragment('init') %>
 

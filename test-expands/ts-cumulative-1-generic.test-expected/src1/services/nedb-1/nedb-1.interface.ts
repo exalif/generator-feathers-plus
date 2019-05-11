@@ -3,6 +3,10 @@
 // Import required enums
 import { ItemTypeEnum, RelatedItemItemTypeEnum, ItemSizeEnum, AdditionalSizesEnum } from '../../models/enums';
 
+import { ExistingEnum } from '../../models/existing/type.enum';
+
+import { ExistingEnumWithAbs } from '../../models/@someAlias/existing.enum';
+
 // !code: imports // !end
 // !code: init // !end
 
@@ -18,7 +22,9 @@ export interface Nedb1Base {
   itemSizeWithoutKeys: number;
   itemSize: ItemSizeEnum;
   additionalSizes: AdditionalSizesEnum[];
-  additionalSizesWithoutKeys: number[]
+  additionalSizesWithoutKeys: number[];
+  existingTypeWithRelativePath: ExistingEnum;
+  existingTypeWithAbsolutePath: ExistingEnumWithAbs
 };
   // !end
 }
