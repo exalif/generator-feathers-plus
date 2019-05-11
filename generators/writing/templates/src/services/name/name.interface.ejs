@@ -5,7 +5,13 @@
 // Import required enums
 <%- tplTsOnly([`import {${typescriptEnumsImportsStr} } from '../../${subFolderReverse}models/enums'${sc}`, '', '']) -%>
 <% } -%>
-<%# --- if-1 ends above. -%>
+<%# --- if-2 starts below. -%>
+<% if (generateTypeScriptEnums && existingTypescriptEnumsImportsArr && existingTypescriptEnumsImportsArr.length > 0) { -%>
+  <% existingTypescriptEnumsImportsArr.forEach(function(existingEnum) { %>
+    <%- tplTsOnly([`import {${existingEnum.enumName} } from '../../${subFolderReverse}models/${existingEnum.enumPath}'${sc}`, '', '']) -%>
+  <% }) %>
+<% } -%>
+<%# --- if-2 ends above. -%>
 <%- insertFragment('imports') %>
 <%- insertFragment('init') %>
 

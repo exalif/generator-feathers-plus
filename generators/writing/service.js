@@ -145,8 +145,13 @@ function service (generator, name, props, specs, context, state, inject, typescr
   validateJsonSchema(name, feathersSpecs[name]);
 
   // Custom template context.
-  const { typescriptTypes, typescriptExtends, typescriptEnums, typescriptEnumsImports } =
-    serviceSpecsToTypescript(specsService, feathersSpecs[name], feathersSpecs[name]._extensions, generateTypeScriptEnums, reuseIdenticalEnums, typescriptGlobalEnumsArr);
+  const {
+    typescriptTypes,
+    typescriptExtends,
+    typescriptEnums,
+    typescriptEnumsImports,
+    existingTypescriptEnumsImports
+  } = serviceSpecsToTypescript(specsService, feathersSpecs[name], feathersSpecs[name]._extensions, generateTypeScriptEnums, reuseIdenticalEnums, typescriptGlobalEnumsArr);
 
   let graphqlTypeName;
   if (specs.graphql && specsService.graphql && name !== 'graphql') {
@@ -184,6 +189,7 @@ function service (generator, name, props, specs, context, state, inject, typescr
   context1.mongooseSchemaStr = stringifyPlus(context1.mongooseSchema, { nativeFuncs: mongooseNativeFuncs });
   context1.typescriptTypesStr = typescriptTypes.map(str => `  ${str}${context1.sc}`).join(`${EOL}`);
   context1.typescriptEnumsImportsStr = Array.from(typescriptEnumsImports).map((str, index, arr) => ` ${str}`);
+  context1.existingTypescriptEnumsImportsArr = Array.from(existingTypescriptEnumsImports);
   context1.typescriptExtendsStr = typescriptExtends.map(str => `  ${str}${context1.sc} // change if needed`).join(`${EOL}`);
   context1.generateTypeScriptEnums = generateTypeScriptEnums;
 
