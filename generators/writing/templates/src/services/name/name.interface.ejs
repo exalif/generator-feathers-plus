@@ -7,13 +7,13 @@
 <% } -%>
 <%# --- if-2 starts below. -%>
 <% if (generateTypeScriptEnums && existingTypescriptEnumsImportsArr && existingTypescriptEnumsImportsArr.length > 0) { -%>
-  <% existingTypescriptEnumsImportsArr.forEach(function(existingEnum) { %>
+  <% existingTypescriptEnumsImportsArr.forEach(function(existingEnum) { -%>
     <% if (existingEnum.relativePath) { -%>
       <%- tplTsOnly([`import {${existingEnum.enumName} } from '../../${subFolderReverse}models/${existingEnum.enumPath}'${sc}`, '', '']) -%>
     <% } else { -%>
       <%- tplTsOnly([`import {${existingEnum.enumName} } from '${existingEnum.enumPath}'${sc}`, '', '']) -%>
     <% } -%>
-  <% }) %>
+  <% }) -%>
 <% } -%>
 <%# --- if-2 ends above. -%>
 <%- insertFragment('imports') %>
