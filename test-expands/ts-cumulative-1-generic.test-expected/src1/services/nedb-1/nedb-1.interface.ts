@@ -5,7 +5,11 @@ import { ItemTypeEnum, RelatedItemItemTypeEnum, ItemSizeEnum, AdditionalSizesEnu
 
 import { ExistingEnum } from '../../models/existing/type.enum';
 
-import { ExistingEnumWithAbs } from '../../models/@someAlias/existing.enum';
+import { ExistingEnumWithAbs } from '@someAlias/existing.enum';
+
+import { ExistingEnumInArray } from '../../models/existing/array-type.enum';
+
+import { ExistingEnumInArrayAbs } from '@existing/array-type-abs.enum';
 
 // !code: imports // !end
 // !code: init // !end
@@ -24,7 +28,9 @@ export interface Nedb1Base {
   additionalSizes: AdditionalSizesEnum[];
   additionalSizesWithoutKeys: number[];
   existingTypeWithRelativePath: ExistingEnum;
-  existingTypeWithAbsolutePath: ExistingEnumWithAbs
+  existingTypeWithAbsolutePath: ExistingEnumWithAbs;
+  existingEnumArray: ExistingEnumInArray[];
+  existingEnumArrayAbs: ExistingEnumInArrayAbs[]
 };
   // !end
 }
