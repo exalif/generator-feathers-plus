@@ -1,6 +1,6 @@
 
 // Application interface. (Can be re-generated.)
-import { Application } from '@feathersjs/express';
+import { Application } from '@feathersjs/feathers';
 import { Nedb1 } from './services/nedb-1/nedb-1.interface';
 import { Nedb2 } from './services/nedb-2/nedb-2.interface';
 import { Users1 } from './services/users-1/users-1.interface';
