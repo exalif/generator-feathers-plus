@@ -29,6 +29,7 @@ export type App = Application<{
   'nedb-4': Nedb4,
   'nedb-5': Nedb5,
   'nedb-6': Nedb6,
+
   // !code: moduleExports // !end
 }>;
 // !code: funcs // !end

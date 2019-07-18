@@ -33,7 +33,7 @@ module.exports = class AllGenerator extends Generator {
       message: 'Generate Typescript enums?',
       type: 'confirm',
       default () {
-        return false;
+        return true;
       },
       when: (answers) => answers.confirmation && specs.options.ts
     }, {
@@ -41,7 +41,7 @@ module.exports = class AllGenerator extends Generator {
       message: 'Reuse the name of existing enums with identical values?',
       type: 'confirm',
       default () {
-        return false;
+        return true;
       },
       when: (answers) => answers.confirmation && answers.generateTypeScriptEnums
     }];

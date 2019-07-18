@@ -33,6 +33,14 @@ export type App = Application<{
   '<%- specs.services[__name].fileName %>': <%- upperFirst(specs.services[__name].nameSingular) %>,
 <% }); -%>
 <%# --- forEach-2 ends above. -%>
+<%# --- if-1 starts below. -%>
+<% if (!!specs.authentication) { -%>
+
+  // authentication
+  'authentication': any,
+<% } -%>
+<%# --- if-1 ends above. -%>
+
   <%- insertFragment('moduleExports') %>
 }>;
 <%- insertFragment('funcs') %>
