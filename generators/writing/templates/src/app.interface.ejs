@@ -32,6 +32,7 @@ export type App = Application<{
 <% Object.keys(specs.services || {}).sort().forEach(__name => { -%>
   '<%- specs.services[__name].fileName %>': <%- upperFirst(specs.services[__name].nameSingular) %>,
 <% }); -%>
+<%# --- forEach-2 ends above. -%>
 <%# --- if-1 starts below. -%>
 <% if (!!specs.authentication) { -%>
 
@@ -39,7 +40,6 @@ export type App = Application<{
   'authentication': any,
 <% } -%>
 <%# --- if-1 ends above. -%>
-<%# --- forEach-2 ends above. -%>
 
   <%- insertFragment('moduleExports') %>
 }>;
