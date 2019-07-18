@@ -19,6 +19,7 @@ import { Nedb1 } from './services/nedb-1/nedb-1.interface';
  */
 export type App = Application<{
   'nedb-1': Nedb1,
+
   // !code: moduleExports // !end
 }>;
 // !code: funcs // !end

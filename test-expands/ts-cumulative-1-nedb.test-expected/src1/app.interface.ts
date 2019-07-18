@@ -23,6 +23,10 @@ export type App = Application<{
   'nedb-1': Nedb1,
   'nedb-2': Nedb2,
   'users-1': Users1,
+
+  // authentication
+  'authentication': any,
+
   // !code: moduleExports // !end
 }>;
 // !code: funcs // !end

@@ -29,4 +29,5 @@ export enum AdditionalSizesEnum {
 }
 // !end
 
+// !code: customEnums // !end
 // !code: end // !end
