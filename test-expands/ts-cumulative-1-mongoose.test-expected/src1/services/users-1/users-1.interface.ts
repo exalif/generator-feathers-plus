@@ -7,6 +7,7 @@
 export interface Users1Base {
   // !<DEFAULT> code: interface
   name: string;
+  members: any[];
   // !end
 }
 

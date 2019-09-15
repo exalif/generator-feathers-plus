@@ -22,6 +22,19 @@ let base = merge({},
     properties: {
       name: {
         type: "string"
+      },
+      members: {
+        type: "array",
+        uniqueItems: true,
+        items: {
+          type: "object",
+          properties: {
+            _id: false,
+            rule: {
+              type: "string"
+            }
+          }
+        }
       }
     }
   },

@@ -16,6 +16,19 @@ let moduleExports = merge({},
       },
       name: {
         bsonType: "string"
+      },
+      members: {
+        uniqueItems: true,
+        items: {
+          type: "object",
+          properties: {
+            _id: false,
+            rule: {
+              type: "string"
+            }
+          }
+        },
+        bsonType: "array"
       }
     }
   },

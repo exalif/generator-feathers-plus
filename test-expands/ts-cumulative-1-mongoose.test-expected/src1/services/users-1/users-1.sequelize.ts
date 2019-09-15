@@ -20,6 +20,9 @@ let moduleExports = merge({},
   {
     name: {
       type: DataTypes.TEXT
+    },
+    members: {
+      type: DataTypes.JSONB
     }
   } as DefineAttributes,
   // !end
