@@ -10,7 +10,13 @@ import mongoose from 'mongoose';
 let moduleExports = merge({},
   // !<DEFAULT> code: model
   {
-    name: String
+    name: String,
+    members: [
+      {
+        _id: false,
+        rule: String
+      }
+    ]
   },
   // !end
   // !code: moduleExports // !end

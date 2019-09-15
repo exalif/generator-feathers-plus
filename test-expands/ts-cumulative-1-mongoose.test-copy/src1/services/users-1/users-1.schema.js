@@ -23,7 +23,18 @@ let schema = {
   // Fields in the model.
   properties: {
     // !code: schema_properties
-    name: {}
+    name: {},
+    members: {
+      type: 'array',
+      uniqueItems: true,
+      items: {
+        type: 'object',
+        properties: {
+          _id: false,
+          rule: { type: 'string' }
+        }
+      }
+    },
     // !end
   },
   // !code: schema_more // !end
